@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="SourceFiles"
+                   displayName="Исходные файлы"
+                   projectFiles="true">
+      <itemPath>parser/Circle.cpp</itemPath>
+      <itemPath>GeneralMovement.cpp</itemPath>
+      <itemPath>parser/HitObject.cpp</itemPath>
+      <itemPath>OsuFileParser.cpp</itemPath>
+      <itemPath>OsuMovement.cpp</itemPath>
+      <itemPath>parser/Spinner.cpp</itemPath>
+      <itemPath>parser/TimingPoint.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="HeaderFiles"
+                   displayName="Файлы заголовков"
+                   projectFiles="true">
+      <itemPath>parser/Circle.h</itemPath>
+      <itemPath>GeneralMovement.h</itemPath>
+      <itemPath>parser/HitObject.h</itemPath>
+      <itemPath>OsuFileParser.h</itemPath>
+      <itemPath>OsuMovement.h</itemPath>
+      <itemPath>parser/Spinner.h</itemPath>
+      <itemPath>parser/TimingPoint.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Файлы ресурсов"
+                   projectFiles="true">
+      <logicalFolder name="maps" displayName="maps" projectFiles="true">
+        <itemPath>maps/Kuba Oms - Don't Stop Fallin' (Revo1tt) [spinnertest].osu</itemPath>
+        <itemPath>maps/Kuba Oms - Don't Stop Fallin' (Revo1tt) [test].osu</itemPath>
+        <itemPath>maps/Kurokotei - Galaxy Collapse (Doomsday is Bad) [Galactic].osu</itemPath>
+        <itemPath>maps/The Koxx - A FOOL MOON NIGHT (Astar) [Friendofox's Galaxy].osu</itemPath>
+        <itemPath>maps/testbig.osu</itemPath>
+        <itemPath>maps/xi - Akasha (Jemmmmy) [Extreme].osu</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Файлы тестов"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Важные файлы"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+      </compileType>
+      <item path="GeneralMovement.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GeneralMovement.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OsuFileParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OsuFileParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OsuMovement.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OsuMovement.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="maps/Kuba Oms - Don&apos;t Stop Fallin&apos; (Revo1tt) [spinnertest].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="maps/Kuba Oms - Don&apos;t Stop Fallin&apos; (Revo1tt) [test].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="maps/Kurokotei - Galaxy Collapse (Doomsday is Bad) [Galactic].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="maps/The Koxx - A FOOL MOON NIGHT (Astar) [Friendofox&apos;s Galaxy].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="maps/testbig.osu" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="maps/xi - Akasha (Jemmmmy) [Extreme].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="parser/Circle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/Circle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parser/HitObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/HitObject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parser/Spinner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/Spinner.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parser/TimingPoint.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/TimingPoint.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="GeneralMovement.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GeneralMovement.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OsuFileParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OsuFileParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OsuMovement.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OsuMovement.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="maps/Kuba Oms - Don&apos;t Stop Fallin&apos; (Revo1tt) [spinnertest].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="maps/Kuba Oms - Don&apos;t Stop Fallin&apos; (Revo1tt) [test].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="maps/Kurokotei - Galaxy Collapse (Doomsday is Bad) [Galactic].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="maps/The Koxx - A FOOL MOON NIGHT (Astar) [Friendofox&apos;s Galaxy].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="maps/testbig.osu" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="maps/xi - Akasha (Jemmmmy) [Extreme].osu"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="parser/Circle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/Circle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parser/HitObject.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/HitObject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parser/Spinner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/Spinner.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parser/TimingPoint.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/TimingPoint.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
