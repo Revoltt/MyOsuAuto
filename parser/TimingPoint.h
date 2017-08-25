@@ -1,3 +1,4 @@
+#pragma once
 #include <vector>
 
 class TimingPoint {
@@ -5,7 +6,7 @@ public:
     TimingPoint();
     ~TimingPoint();
     int time;
-    double bpm;
+    double msperbeat;
     int meter;
     int sampleType;
     int sampleSet;

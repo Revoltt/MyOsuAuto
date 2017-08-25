@@ -9,6 +9,7 @@
       <itemPath>parser/HitObject.cpp</itemPath>
       <itemPath>OsuFileParser.cpp</itemPath>
       <itemPath>OsuMovement.cpp</itemPath>
+      <itemPath>parser/Slider.cpp</itemPath>
       <itemPath>parser/Spinner.cpp</itemPath>
       <itemPath>parser/TimingPoint.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -21,6 +22,7 @@
       <itemPath>parser/HitObject.h</itemPath>
       <itemPath>OsuFileParser.h</itemPath>
       <itemPath>OsuMovement.h</itemPath>
+      <itemPath>parser/Slider.h</itemPath>
       <itemPath>parser/Spinner.h</itemPath>
       <itemPath>parser/TimingPoint.h</itemPath>
     </logicalFolder>
@@ -107,6 +109,10 @@
       </item>
       <item path="parser/HitObject.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="parser/Slider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/Slider.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="parser/Spinner.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="parser/Spinner.h" ex="false" tool="3" flavor2="0">
@@ -184,6 +190,10 @@
       <item path="parser/HitObject.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="parser/HitObject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parser/Slider.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parser/Slider.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="parser/Spinner.cpp" ex="false" tool="1" flavor2="0">
       </item>

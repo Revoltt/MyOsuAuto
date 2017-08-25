@@ -7,6 +7,9 @@
 #include <stdlib.h>
 #include "parser/Circle.h"
 #include "parser/Spinner.h"
+#include "parser/Slider.h"
+#include "Windows.h"
+
 
 using namespace std;
 
@@ -27,6 +30,7 @@ public:
     
     static int ParseAll();
     static string ReadLine();
+    static TimingPoint GetTimingPoint(LONG time);
     
     static int fileFormatVer;
     static double lastPosMsPerBeat;

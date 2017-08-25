@@ -16,7 +16,11 @@ using namespace std;
 int main()
 {
 //    Sleep(1000);
-//    GeneralMovement::mouseMoveAbsolute(716, 403);
+//    GeneralMovement::mouseLeftExtendedPress();
+//    //GeneralMovement::mouseMoveAbsolute(716, 403);
+//    Sleep(10000);
+//    GeneralMovement::mouseLeftRelease();
+
     OsuFileParser x;
     x.ParseAll();
     bool first = true;
@@ -43,23 +47,23 @@ int main()
             if(GetKeyState('X') & 0x8000)
             {
                 break;
-            }  
+            }
         } else if (((OsuFileParser::objects.at(i)->type & 2) >> 1 == 1) && first) {
             // detect key press
-            Circle* temp = static_cast<Circle*>(OsuFileParser::objects.at(i));
+            Slider* temp = static_cast<Slider*>(OsuFileParser::objects.at(i));
             while (true) {
                 if(GetKeyState('D') & 0x8000/*check if high-order bit is set (1 << 15)*/)
                 {
-                    OsuMovement::ClickFirstCircle(temp->xstart, temp->ystart, temp->time);
+                    OsuMovement::ClickFirstSlider(temp);
                     first = false;
                     break;
                 }
                 Sleep(1);
             }
         } else if (((OsuFileParser::objects.at(i)->type & 2) >> 1 == 1) && !first){
-            //hitcircle
-            Circle* temp = static_cast<Circle*>(OsuFileParser::objects.at(i));
-            OsuMovement::ClickTheCircle(temp->xstart, temp->ystart, temp->time);
+            //hitSlider
+            Slider* temp = static_cast<Slider*>(OsuFileParser::objects.at(i));
+            OsuMovement::ClickTheSlider(temp);
             // exit if anything goes wrong
             if(GetKeyState('X') & 0x8000)
             {

@@ -41,6 +41,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/parser/Circle.o \
 	${OBJECTDIR}/parser/HitObject.o \
+	${OBJECTDIR}/parser/Slider.o \
 	${OBJECTDIR}/parser/Spinner.o \
 	${OBJECTDIR}/parser/TimingPoint.o
 
@@ -98,6 +99,11 @@ ${OBJECTDIR}/parser/HitObject.o: parser/HitObject.cpp
 	${MKDIR} -p ${OBJECTDIR}/parser
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parser/HitObject.o parser/HitObject.cpp
+
+${OBJECTDIR}/parser/Slider.o: parser/Slider.cpp
+	${MKDIR} -p ${OBJECTDIR}/parser
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parser/Slider.o parser/Slider.cpp
 
 ${OBJECTDIR}/parser/Spinner.o: parser/Spinner.cpp
 	${MKDIR} -p ${OBJECTDIR}/parser

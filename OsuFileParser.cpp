@@ -10,9 +10,9 @@ vector<HitObject*> OsuFileParser::objects;
 ifstream OsuFileParser::infile;
 
 OsuFileParser::OsuFileParser() {
-    //OsuFileParser::infile.open("maps/Kuba Oms - Don't Stop Fallin' (Revo1tt) [spinnertest].osu");
+    OsuFileParser::infile.open("maps/Kuba Oms - Don't Stop Fallin' (Revo1tt) [spinnertest].osu");
     //OsuFileParser::infile.open("maps/Kuba Oms - Don't Stop Fallin' (Revo1tt) [test].osu");
-    OsuFileParser::infile.open("maps/xi - Akasha (Jemmmmy) [Extreme].osu");
+    //OsuFileParser::infile.open("maps/xi - Akasha (Jemmmmy) [Extreme].osu");
     //OsuFileParser::infile.open("maps/Kurokotei - Galaxy Collapse (Doomsday is Bad) [Galactic].osu");
     //OsuFileParser::infile.open("maps/The Koxx - A FOOL MOON NIGHT (Astar) [Friendofox's Galaxy].osu");
 }
@@ -86,10 +86,16 @@ int OsuFileParser::ReadColours() {
 
 int OsuFileParser::ReadTimingPoints() {
     //  Timing points
+    //OsuFileParser::timing.clear();
     int i = 0;
+    int lastpostp = 0;
     do {
         ReadLine();
         // parse line
+        if (line.size() == 0) {
+            continue;
+        }
+        
         if (line[0] != '[') {
             TimingPoint point;
             string temp;
@@ -98,7 +104,13 @@ int OsuFileParser::ReadTimingPoints() {
             line = line.substr(line.find(",") + 1);
             
             temp = line.substr(0, line.find(","));
-            point.bpm = atof(temp.c_str());
+            if (atof(temp.c_str()) > 0) {
+                point.msperbeat = atof(temp.c_str());
+                lastpostp = atof(temp.c_str());
+            } else {
+                point.msperbeat = lastpostp + atof(temp.c_str());
+            }
+            
             line = line.substr(line.find(",") + 1);
             
             temp = line.substr(0, line.find(","));
@@ -124,18 +136,31 @@ int OsuFileParser::ReadTimingPoints() {
             temp = line.substr(0, line.size() - 1);
             point.kiai = atoi(temp.c_str());
             
-            timing.push_back(&point);
+            OsuFileParser::timing.push_back(&point);
         }
         i++;
     } while (OsuFileParser::line[0] != '[');
 }
 
+TimingPoint OsuFileParser::GetTimingPoint(LONG time) {
+    for (int i = OsuFileParser::timing.size() - 1; i >= 0; i--) {
+        if (OsuFileParser::timing.at(i)->time <= time) {
+            return *OsuFileParser::timing.at(i);
+        }
+    }
+}
+
 int OsuFileParser::ReadHitObjects() {
     // Hit Objects
+    //OsuFileParser::objects.clear();
     int i = 0;
     do {
         ReadLine();
         // parse line
+        if (line.size() == 0) {
+            break;
+        }
+        
         if (line[0] != '[') {
             string temp = line.substr(line.find(",") + 1);
             temp = temp.substr(temp.find(",") + 1);
@@ -152,10 +177,10 @@ int OsuFileParser::ReadHitObjects() {
                 OsuFileParser::objects.push_back(temp);
             } else if ((lineType & 2) >> 1 == 1) {
                 //TODO slider
-                Circle *temp = new Circle(line);
+                Slider *temp = new Slider(line);
                 OsuFileParser::objects.push_back(temp);
             } else if ((lineType & 8) >> 3 == 1) {
-                //TODO spinner
+                //TODO upgrade spinner
                 Spinner *temp = new Spinner(line);
                 OsuFileParser::objects.push_back(temp);
             }
