@@ -38,5 +38,6 @@ public:
     static vector<HitObject*> objects;
     static string line;
     static ifstream infile;
+    static double sliderMultiplier;
 };
 

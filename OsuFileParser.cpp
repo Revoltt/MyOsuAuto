@@ -6,13 +6,14 @@ string OsuFileParser::line = "";
 double OsuFileParser::lastPosMsPerBeat = 0.0;
 vector<TimingPoint*> OsuFileParser::timing;
 vector<HitObject*> OsuFileParser::objects;
+double OsuFileParser::sliderMultiplier = 0.0;
 
 ifstream OsuFileParser::infile;
 
 OsuFileParser::OsuFileParser() {
-    OsuFileParser::infile.open("maps/Kuba Oms - Don't Stop Fallin' (Revo1tt) [spinnertest].osu");
+    //OsuFileParser::infile.open("maps/Kuba Oms - Don't Stop Fallin' (Revo1tt) [spinnertest].osu");
     //OsuFileParser::infile.open("maps/Kuba Oms - Don't Stop Fallin' (Revo1tt) [test].osu");
-    //OsuFileParser::infile.open("maps/xi - Akasha (Jemmmmy) [Extreme].osu");
+    OsuFileParser::infile.open("maps/xi - Akasha (Jemmmmy) [Extreme].osu");
     //OsuFileParser::infile.open("maps/Kurokotei - Galaxy Collapse (Doomsday is Bad) [Galactic].osu");
     //OsuFileParser::infile.open("maps/The Koxx - A FOOL MOON NIGHT (Astar) [Friendofox's Galaxy].osu");
 }
@@ -65,8 +66,15 @@ int OsuFileParser::ReadMetaData() {
 
 int OsuFileParser::ReadDiffData() {
     //  Difficulty data stub
+    int i = 0;
     do {
         ReadLine();
+        if (OsuFileParser::line.find("SliderMultiplier") != -1) {
+            // slider multiplier
+            string temp = OsuFileParser::line.substr(OsuFileParser::line.find(':') + 1);
+            OsuFileParser::sliderMultiplier = atof(temp.c_str());
+        }
+        i++;
     } while (OsuFileParser::line[0] != '[');
 }
 
@@ -97,46 +105,46 @@ int OsuFileParser::ReadTimingPoints() {
         }
         
         if (line[0] != '[') {
-            TimingPoint point;
+            TimingPoint *point = new TimingPoint(); // TODO new
             string temp;
             temp = line.substr(0, line.find(","));
-            point.time = atoi(temp.c_str());
+            point->time = atoi(temp.c_str());
             line = line.substr(line.find(",") + 1);
             
             temp = line.substr(0, line.find(","));
             if (atof(temp.c_str()) > 0) {
-                point.msperbeat = atof(temp.c_str());
+                point->msperbeat = atof(temp.c_str());
                 lastpostp = atof(temp.c_str());
             } else {
-                point.msperbeat = lastpostp + atof(temp.c_str());
+                point->msperbeat = lastpostp + atof(temp.c_str());
             }
             
             line = line.substr(line.find(",") + 1);
             
             temp = line.substr(0, line.find(","));
-            point.meter = atoi(temp.c_str());
+            point->meter = atoi(temp.c_str());
             line = line.substr(line.find(",") + 1);
             
             temp = line.substr(0, line.find(","));
-            point.sampleType = atoi(temp.c_str());
+            point->sampleType = atoi(temp.c_str());
             line = line.substr(line.find(",") + 1);
             
             temp = line.substr(0, line.find(","));
-            point.sampleSet = atoi(temp.c_str());
+            point->sampleSet = atoi(temp.c_str());
             line = line.substr(line.find(",") + 1);
             
             temp = line.substr(0, line.find(","));
-            point.volume = atoi(temp.c_str());
+            point->volume = atoi(temp.c_str());
             line = line.substr(line.find(",") + 1);
             
             temp = line.substr(0, line.find(","));
-            point.inherited = atoi(temp.c_str());
+            point->inherited = atoi(temp.c_str());
             line = line.substr(line.find(",") + 1);
             
             temp = line.substr(0, line.size() - 1);
-            point.kiai = atoi(temp.c_str());
+            point->kiai = atoi(temp.c_str());
             
-            OsuFileParser::timing.push_back(&point);
+            OsuFileParser::timing.push_back(point);
         }
         i++;
     } while (OsuFileParser::line[0] != '[');
@@ -162,7 +170,7 @@ int OsuFileParser::ReadHitObjects() {
         }
         
         if (line[0] != '[') {
-            string temp = line.substr(line.find(",") + 1);
+            string temp = line.substr(line.find(",") + 1); // TODO new
             temp = temp.substr(temp.find(",") + 1);
             temp = temp.substr(temp.find(",") + 1);
             temp = temp.substr(0, temp.find(","));

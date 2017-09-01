@@ -65,10 +65,10 @@ Slider::Slider(string s) {
     }
     
     TimingPoint tp = OsuFileParser::GetTimingPoint(this->time);
-    double pixelsPerBeat = this->repeat * 100 * 100 / tp.msperbeat;
+    double pixelsPerBeat = OsuFileParser::sliderMultiplier * 100 * 100 / tp.msperbeat;
     double beatsNum = this->repeat * this->pixelLength / pixelsPerBeat;
     
-    this->duration = static_cast<int>(time + ceil(beatsNum * tp.msperbeat));
+    this->duration = static_cast<int>(ceil(beatsNum * tp.msperbeat / 10));
 }
 
 Slider::~Slider() {

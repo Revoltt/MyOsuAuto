@@ -20,6 +20,14 @@ int main()
 //    //GeneralMovement::mouseMoveAbsolute(716, 403);
 //    Sleep(10000);
 //    GeneralMovement::mouseLeftRelease();
+//tq
+//    Sleep(10000);
+//    GeneralMovement::keyExtendedPress(0x39);
+//    GeneralMovement::mouseLeftExtendedPress();
+//    Sleep(5 * 60 * 1000);
+//    GeneralMovement::mouseLeftRelease();
+//    GeneralMovement::keyRelease(0x39);
+    
 
     OsuFileParser x;
     x.ParseAll();

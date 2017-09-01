@@ -68,7 +68,7 @@ int OsuMovement::ClickTheSlider(Slider* src) {
     // TODO switch to relative movement
     Sleep(time - OsuMovement::curTimer - offset);
     GeneralMovement::mouseMoveAbsolute(XCoordTransform(mapx), YCoordTransform(mapy));
-    cout << XCoordTransform(mapx) << " " << YCoordTransform(mapy) << endl;
+    cout << XCoordTransform(mapx) << " " << YCoordTransform(mapy)  << src->duration << endl;
     GeneralMovement::mouseLeftExtendedPress();
     //GeneralMovement::keyExtendedPress(A);
     Sleep(src->duration);
@@ -85,7 +85,7 @@ int OsuMovement::ClickFirstSlider(Slider* src) {
     
     //Sleep(time - OsuMovement::curTimer - offset);
     GeneralMovement::mouseMoveAbsolute(XCoordTransform(mapx), YCoordTransform(mapy));
-    cout << XCoordTransform(mapx) << " " << YCoordTransform(mapy) << endl;
+    cout << XCoordTransform(mapx) << " " << YCoordTransform(mapy) << src->duration << endl;
     GeneralMovement::mouseLeftExtendedPress();
     //GeneralMovement::keyExtendedPress(A);
     Sleep(src->duration);
